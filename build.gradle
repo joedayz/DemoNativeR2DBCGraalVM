@@ -30,6 +30,10 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.microsoft.sqlserver:mssql-jdbc'
 	runtimeOnly 'io.r2dbc:r2dbc-mssql:1.0.0.RELEASE'
+
+	implementation 'org.flywaydb:flyway-core'
+	implementation 'org.flywaydb:flyway-sqlserver'	
+        
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'io.projectreactor:reactor-test'
@@ -39,7 +43,7 @@ dependencies {
 bootBuildImage {
 	builder = 'paketobuildpacks/builder:tiny'
 	environment = [
-			'BP_NATIVE_IMAGE_BUILD_ARGUMENTS': '-H:+AddAllCharsets --initialize-at-build-time=io.r2dbc.mssql'
+			'BP_NATIVE_IMAGE_BUILD_ARGUMENTS': '-H:+AddAllCharsets'
 	]
 }
 

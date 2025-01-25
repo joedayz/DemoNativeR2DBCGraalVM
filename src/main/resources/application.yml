@@ -1,21 +1,18 @@
+
 server:
-  port: 8080
+  port: 8085
 
 spring:
-  datasource:
-    url: jdbc:sqlserver://sqlserver:1433;databaseName=customers;encrypt=true;trustServerCertificate=true;
+  r2dbc:
+    url: r2dbc:sqlserver://sqlserver:1433/customers?encrypt=true&trustServerCertificate=true;
     username: sa
     password: Perusalen123$
-  jpa:
-    hibernate:
-      ddl-auto: update
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.SQLServerDialect
-  sql:
-    init:
-      mode: always
 
+
+  flyway:
+    url: jdbc:sqlserver://sqlserver:1433;databaseName=customers;encrypt=true;trustServerCertificate=true;
+    locations: classpath:db/mssql/migration  
+    
 
 logging:
   pattern:
@@ -25,4 +22,7 @@ logging:
     org.springframework.web: ERROR
     com.pacifico.demopacificogradle: ERROR
     org.hibernate: ERROR
+    io.r2dbc.mssql: DEBUG
+    org.springframework.r2dbc.connection: DEBUG
+
 
