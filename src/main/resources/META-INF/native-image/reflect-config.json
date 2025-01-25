@@ -1,0 +1,11 @@
+[
+  {
+    "name": "io.r2dbc.mssql.MssqlConnectionFactory",
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "io.r2dbc.mssql.MssqlConnection",
+    "allDeclaredMethods": true
+  }
+]

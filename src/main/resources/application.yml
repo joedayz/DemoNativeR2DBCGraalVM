@@ -1,0 +1,28 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:sqlserver://sqlserver:1433;databaseName=customers;encrypt=true;trustServerCertificate=true;
+    username: sa
+    password: Perusalen123$
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServerDialect
+  sql:
+    init:
+      mode: always
+
+
+logging:
+  pattern:
+    console: '%d{yyyy-MM-dd HH:mm:ss} [%thread] - %msg%n'
+    file: '%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n'
+  level:
+    org.springframework.web: ERROR
+    com.pacifico.demopacificogradle: ERROR
+    org.hibernate: ERROR
+
